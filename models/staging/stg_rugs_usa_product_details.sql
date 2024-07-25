@@ -67,7 +67,7 @@ select distinct
     p.material,
     p.weave,
     coalesce(v.weave_feature, p.weave_feature) as weave_feature,
-    p.color,
+    coalesce(split_part(p.url, '/', 5), p.color) as color,
     p.brand,
     --p.imagename,
     --p.imagetype,
